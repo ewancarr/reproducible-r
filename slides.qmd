@@ -17,6 +17,7 @@ format:
     highlight-style: atom-one
     code-line-numbers: false
     echo: true
+    output-file: index.html
 ---
 
 ## 🖼️
