@@ -1,7 +1,10 @@
-# Reproducible workflows in R
-## Dr Ewan Carr, King's College London
-*King's Open Research Summer School 2025*
+# 🧪 Reproducible Workflows in R
 
-* [Link to slides](https://ewancarr.github.io/reproducible-r/)
-* [Link to practical](practical/practical.html)
+**Dr Ewan Carr**
+*King’s College London*
+*King’s Open Research Summer School 2025*
 
+---
+
+📑 [**Slides**](https://ewancarr.github.io/reproducible-r/)
+🛠️ [**Practical**](https://ewancarr.github.io/reproducible-r/practical/practical.html)
