@@ -581,8 +581,9 @@ Auto-skips steps with cached results
 Visualise pipeline with tar_visnetwork()
 
 
+# Wrapping up {background-color="#003049"}
 
-# Wrap-up
+![](images/stewie.gif)
 
 ## Tools won't  solve
 
