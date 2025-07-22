@@ -1,0 +1,383 @@
+---
+title: Reproducible workflows in R
+subtitle: "Practical"
+author:
+  - name: Dr Ewan Carr
+    orcid: 0000-0002-1146-4922
+    email: ewan.carr@kcl.ac.uk
+    affiliation:
+      - name: Department of Biostatistics & Health Informatics<br>King’s College London
+        city: King’s College London
+date: 2025-07-25
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: true
+    number-sections: true
+    embed-resources: true
+---
+
+```{r}
+#| echo: false
+team <- "England"
+```
+
+
+<div style="
+  background-color: #fdf0d5;
+  border-left: 6px solid #780000;
+  padding-top: 0.01rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0rem;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.15);
+">
+
+# Welcome {.unnumbered}
+
+This practical will bring together the steps covered in the lecture by:
+
+1. Building a reproducible R pipeline
+2. Committing your project to GitHub
+3. Restoring it from GitHub
+
+With the Women's EURO 2025 final coming up this weekend, we'll be using
+data on `r team`'s performances over the past year.
+
+You will:
+
+* Build models to predict `r team`'s chance of winning their next match.
+* Simulate the likely outcome of the final.
+* Use `here` for file paths and `renv` to lock package versions.
+* Create a Git repository, version your code with git, and push it to GitHub.
+* Make the project fully reproducible and shareable.
+
+![](images/euros.png){fig-align="center"}
+
+</div>
+
+# Software  {.unnumbered}
+
+To complete this practical, you'll need:
+
+* R (≥ 4.3)
+* RStudio
+* Git, used for version control
+* GitHub Desktop (optional) – a user-friendly way to interact with Git and
+
+GitHub Desktop includes Git, so you don't need to install Git separately if you
+use it. However, we recommend installing Git directly to ensure compatibility
+with RStudio's Git features.
+
+## Installing Git {.unnumbered}
+
+::: {.panel-tabset}
+
+## macOS
+
+Git is often pre-installed on macOS. You can check by typing in the Terminal:
+
+```bash
+git --version
+```
+
+If it's not installed, run:
+
+```bash
+xcode-select --install
+```
+
+You can optionally install GitHub Desktop, a graphical interface for Git and
+GitHub, by following the [instructions here](https://desktop.github.com).
+
+## Windows
+
+You can download Git for Windows from <https://git-scm.com>. Run the
+installer and accept default options, in particular:
+
+> *"Use Git from the command line and also from 3rd-party software"*
+
+You can optionally install GitHub Desktop, a graphical interface for Git and
+GitHub, by following the [instructions here](https://desktop.github.com).
+
+:::
+
+
+# Create a project in RStudio
+
+i. Create a new RStudio Project:
+
+    <kbd>File</kbd> > <kbd>New Project</kbd> > <kbd>New Directory</kbd>
+
+ii. Give it an appropriate name (e.g., `euros-prediction`).
+
+# Download the scripts and datasets
+
+Click the links below to download the required scripts and dataset:
+
+* `01-clean.R`
+* `02-analysis.R`
+* `03-plot.R`
+* `fixtures.csv`
+
+Put these inside your project folder and recreate the structure shown below:
+
+```text
+scripts/
+├── 01-clean.R
+├── 02-analysis.R
+└── 03-plot.R
+data/
+├── raw/
+│   └── fixtures.csv
+└── clean/
+outputs/
+```
+
+# Initialise `renv` and install the required packages
+
+In the console, type:
+
+```{r}
+#| eval: false
+install.packages("renv") # <1>
+renv::init() # <2>
+renv::install() # <3>
+renv::snapshot() # <4>
+```
+1. Install the `renv` package. You only need to do this once---not for each project.
+2. Initialise `renv` for the current project.
+3. Install packages required for this project.
+4. Save the current state into `renv.lock`.
+
+Open the `renv.lock` lockfile to understand its contents.
+
+# Run the three scripts
+
+::: {.panel-tabset}
+
+## Import and clean data
+
+Run `01_clean.R` in RStudio. This script:
+
+1. Imports the `fixtures.csv` dataset from the `data/raw` folder.
+2. Performs data cleaning, adding venue, Elo ratings, rest days, and form.
+3. Saves a cleaned dataset to `data/clean/fixtures.rds`.
+
+## Predict the next match
+
+Run `02_analysis.R` in RStudio. This script:
+
+1. Fits two Poisson regression models to predict:
+   - England's goals
+   - Opponent’s goals
+2. Simulates 1000 match results
+3. Saved the probabilities to `outputs/results.rds`
+
+## Visualise
+
+Run `03_plot.R` in RStudio. This script:
+
+1. Loads the saved probabilities (`outputs/results.rds`).
+2. Creates a bar chart of predicted win/draw/loss.
+3. Saves the figure to `outputs/prediction_plot.png`.
+
+:::
+
+# Putting it all together
+
+Create a new script `run.R` at the project root with the contents:
+
+```{r}
+#| eval: false
+library(here)
+source(here("scripts", "01-clean.R"))
+source(here("scripts", "02-analysis.R"))
+source(here("scripts", "03-plot.R"))
+```
+
+This script uses [`source`][source] to run the three scripts sequentially,
+avoiding the need to run in separately.
+
+[source]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html
+
+Run the `run.R` script either by clicking <kbd>Run</kbd> or at the console by
+typing:
+
+
+```r
+source("run.R")
+```
+
+# Initialise the Git repository
+
+We've now set up our project, initialised `renv`, and created a `run.R`
+script that automates our data cleaning and analysis.
+
+In this section, we'll initialise a Git repository and 'commit' the
+current state of our files. Git will allow us to track changes to our
+files over time and restore previous versions.
+
+You can complete this section via the terminal or using a desktop application, such as [GitHub Desktop](https://desktop.github.com/download/).
+
+::: {.panel-tabset}
+
+## Terminal
+
+Open a terminal in the project root and type:
+
+```bash
+git init
+```
+
+* You can do this from within RStudio in the 'Terminal' pane.
+* If you haven't yet installed Git, see the instructions above.
+
+## GitHub Desktop
+
+1. Open GitHub Desktop.
+2. Go to **File** → **Add Local Repository…**.
+3. Click **Choose…** and select your existing project folder.
+4. You should see the prompt:
+
+  > The directory does not appear to be a Git repository. Would you like to
+  > create a repository here instead?”
+
+5. Click "Create Repository".
+
+:::
+
+# 'Commit' our files to the local repository
+
+Having initialised the empty repository, we now need to add our files.
+
+::: {.panel-tabset}
+
+## Terminal
+
+```bash
+git add scripts/* # <1>
+git add data/* # <2>
+git add run.R # <3>
+git add renv.lock # <4>
+git add euros-prediction.Rproj # <5>
+git commit -m "Initial commit" # <6>
+```
+1. Add all files in the 'scripts' folder.
+2. Add all files in the 'data' folder.
+3. Add the `run.R` script.
+4. Add the `renv.lock` lockfile.
+5. Add your RStudio Project file; change the name as appropriate.
+6. Commit the new files with a short message (specified by `-m`)
+
+## GitHub Desktop
+
+1. Open **GitHub Desktop** and select your repository.
+
+2. In the **Changes** tab, tick the checkboxes to stage the following:
+   - All files in the `scripts/` folder
+   - All files in the `data/` folder
+   - The `run.R` file
+   - The `renv.lock` file
+
+3. At the bottom left, enter a commit message:
+   `Initial commit`
+
+4. Click **Commit to main**.
+
+:::
+
+# Connect our local repository to GitHub.com
+
+If you haven't already, create an account on [GitHub.com](https://github.com).
+
+::: {.panel-tabset}
+
+## Terminal
+
+On GitHub.com, create a new (empty) repository.
+
+Then, in the terminal:
+
+```bash
+git remote add origin git@github.com:username/repo.git # <1>
+git push origin main # <2>
+```
+1. Set the `remote` to point to the new repository on Github. You will need to replace the URL with the corresponding URL for your repository.
+2. 'Push' the local history to GitHub.
+
+## GitHub Desktop
+
+1. On GitHub.com, create a new (empty) repository.
+
+2. In **GitHub Desktop**, go to **Repository** → **Repository Settings...**
+
+3. Under **Remote**, click **Add** and enter:
+   - **Name**: `origin`
+   - **URL**: `git@github.com:username/repo.git`
+     (Replace with the URL of your new repository)
+
+4. Click **Save**.
+
+5. Back in the main window, click **Push origin** (top bar) to upload your commits to GitHub.
+
+
+:::
+
+
+# Reproducing your analysis from GitHub
+
+We'll now test that we can recreate our analysis from the online
+repository. The steps involved are:
+
+1. 'Clone' the existing repository from GitHub.
+2. Restore the `renv` environment.
+3. Run the `run.R` script to repeat the analysis.
+
+
+::: {.panel-tabset}
+
+## Terminal
+
+In the terminal:
+
+```bash
+git clone https://github.com/username/your-repo.git # <1>
+```
+1. 'Clone' the repository on GitHub to a local folder. Change `username` and
+   `your-repo` as appropriate.
+
+Then open the RStudio Project, and at the R console:
+
+```r
+renv::restore()
+source("run.R")
+```
+
+---
+
+## GitHub Desktop
+
+1. **File** > **Clone Repository…**
+2. Choose your repository.
+
+Then open the RStudio Project, and at the R console:
+
+```r
+renv::restore()
+source("run.R")
+```
+
+:::
+
+# Adding a 'README' file
+
+1. Write a `README.md`^[Read [this](https://www.makeareadme.com) if you're not
+   sure how to start.] file in your project folder. Briefly describe the
+   analysis and steps needed to reproduce.
+2. Add and commit this file to your local repository.
+3. Push the changes to GitHub.
+
+Once pushed, you can view the `README.md` on your repository page on GitHub.

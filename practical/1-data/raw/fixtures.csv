@@ -1,0 +1,18 @@
+date,opponent,venue,game_type,goals_for,goals_against,opponent_elo
+2024-07-12,Republic of Ireland,home,qualifier,2,1,1600
+2024-10-25,Germany,home,friendly,3,4,1984
+2024-10-29,South Afria,home,friendly,2,1,1600
+2024-11-30,USA,home,friendly,0,0,2100
+2024-12-03,Switzerland,home,friendly,1,0,1820
+2025-02-21,Portugal,home,nations_league,1,1,1500
+2025-02-26,Spain,home,nations_league,1,0,2050
+2025-04-04,Belgium,home,nations_league,5,0,1800
+2025-04-08,Belgium,away,nations_league,2,3,1800
+2025-05-30,Portugal,home,nations_league,6,0,1800
+2025-06-03,Spain,away,nations_league,1,2,2050
+2025-06-29,Jamaica,home,friendly,7,0,1400
+2025-07-05,France,neutral,tournament,1,2,2056
+2025-07-09,Netherlands,neutral,tournament,4,0,1726
+2025-07-13,Wales,home,tournament,6,1,1500
+2025-07-17,Sweden,neutral,tournament,3,2,2100
+2025-07-22,Italy,neutral,tournament,NA,NA,1582
