@@ -21,7 +21,6 @@ format:
     code-line-numbers: false
     echo: true
     slide-number: true
-    embed-resources: true
 ---
 
 ## 🖼️
