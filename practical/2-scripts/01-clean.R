@@ -6,7 +6,7 @@ library(tidyverse)
 library(here)
 library(zoo)
 
-fixtures <- read_csv(here("data", "raw", "fixtures.csv")) |>
+fixtures <- read_csv(here("1-data", "raw", "fixtures.csv")) |>
   arrange(date) |>
   mutate(
     win = as.integer(goals_for > goals_against),
@@ -25,4 +25,4 @@ fixtures <- read_csv(here("data", "raw", "fixtures.csv")) |>
   )
 fixtures <- fixtures[-1, ]
 
-saveRDS(fixtures, here("data", "clean", "fixtures.rds"))
+saveRDS(fixtures, here("1-data", "clean", "fixtures.rds"))

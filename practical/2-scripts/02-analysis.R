@@ -3,7 +3,7 @@ library(here)
 library(broom)
 library(tinytable)
 
-fixtures <- readRDS(here("data", "clean", "fixtures.rds"))
+fixtures <- readRDS(here("1-data", "clean", "fixtures.rds"))
 fixtures$opponent_elo <- scale(fixtures$opponent_elo)[, 1]
 train <- filter(fixtures, !is.na(goals_for))
 
@@ -34,7 +34,7 @@ f_opponent <- glm(
 tidy(f_england)
 tidy(f_opponent)
 
-# Predict the outcome of the semi-final against Italy -------------------------
+# Predict the outcome of the final against Spain ------------------------------
 next_game <- filter(fixtures, is.na(goals_for))
 goals_england <- predict(f_england, newdata = next_game, type = "response")
 goals_opponent <- predict(f_opponent, newdata = next_game, type = "response")

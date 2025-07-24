@@ -11,8 +11,9 @@ date,opponent,venue,game_type,goals_for,goals_against,opponent_elo
 2025-05-30,Portugal,home,nations_league,6,0,1800
 2025-06-03,Spain,away,nations_league,1,2,2050
 2025-06-29,Jamaica,home,friendly,7,0,1400
-2025-07-05,France,neutral,tournament,1,2,2056
-2025-07-09,Netherlands,neutral,tournament,4,0,1726
+2025-07-05,France,neutral,tournament,1,2,1941
+2025-07-09,Netherlands,neutral,tournament,4,0,1926
 2025-07-13,Wales,home,tournament,6,1,1500
-2025-07-17,Sweden,neutral,tournament,3,2,2100
-2025-07-22,Italy,neutral,tournament,NA,NA,1582
+2025-07-17,Sweden,neutral,tournament,3,2,1989
+2025-07-22,Italy,neutral,tournament,2,1,1878
+2025-07-27,Spain,neutral,tournament,NA,NA,2034

@@ -24,7 +24,8 @@ fixtures <- tibble(
     "2025-07-09",
     "2025-07-13",
     "2025-07-17",
-    "2025-07-22"
+    "2025-07-22",
+    "2025-07-27"
   )),
   opponent = c(
     "Republic of Ireland",
@@ -43,7 +44,8 @@ fixtures <- tibble(
     "Netherlands",
     "Wales",
     "Sweden",
-    "Italy"
+    "Italy",
+    "Spain"
   ),
   venue = c(
     "home",
@@ -62,6 +64,7 @@ fixtures <- tibble(
     "neutral",
     "home",
     "neutral",
+    "neutral",
     "neutral"
   ),
   game_type = c(
@@ -77,6 +80,7 @@ fixtures <- tibble(
     "nations_league",
     "nations_league",
     "friendly",
+    "tournament",
     "tournament",
     "tournament",
     "tournament",
@@ -100,9 +104,10 @@ fixtures <- tibble(
     4,
     6,
     3,
+    2,
     NA
   ),
-  goals_against = c(1, 4, 1, 0, 0, 1, 0, 0, 3, 0, 2, 0, 2, 0, 1, 2, NA),
+  goals_against = c(1, 4, 1, 0, 0, 1, 0, 0, 3, 0, 2, 0, 2, 0, 1, 2, 1, NA),
   opponent_elo = c(
     1600,
     1984,
@@ -116,12 +121,13 @@ fixtures <- tibble(
     1800,
     2050,
     1400,
-    2056,
-    1726,
+    1941,
+    1926,
     1500,
-    2100,
-    1582
+    1989,
+    1878,
+    2034
   )
 )
 
-write_csv(fixtures, here("data", "raw", "fixtures.csv"))
+write_csv(fixtures, here("1-data", "raw", "fixtures.csv"))
