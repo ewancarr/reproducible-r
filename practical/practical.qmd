@@ -39,12 +39,11 @@ This practical will bring together the steps covered in the lecture by:
 
 With the Women's EURO 2025 final approaching this weekend, we'll build a
 reproducible pipeline to predict England's chance of winning the final
-against Spain, using information of their performance over the past
-year.
+against Spain, using information on their performance over the past year.
 
 You will:
 
-* Build models to predict England's chance of winning their next match.
+* Build models to predict England's chance of winning their next match
 * Simulate the likely outcome of the final.
 * Use `here` for file paths and `renv` to lock package versions.
 * Create a Git repository, version your code with git, and push it to GitHub.
@@ -141,7 +140,7 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 
 3. Add it to GitHub:
 - Go to [GitHub → Settings → SSH and GPG keys](https://github.com/settings/keys).
-- Click "New SSH key" and paste your generated key.
+- Click **New SSH key** and paste your generated key.
 
 4. Tell Git to use the key:
 
@@ -209,11 +208,15 @@ Open the `renv.lock` lockfile to understand its contents.
 
 # Run the three scripts
 
+Once packages are installed and `renv`  is initialised, you're ready to run the
+analysis.
+
+
 ::: {.panel-tabset}
 
 ## Import and clean data
 
-Run `01_clean.R` in RStudio. This script:
+Run `01-clean.R` in RStudio. This script:
 
 1. Imports the `fixtures.csv` dataset from the `data/raw` folder.
 2. Performs data cleaning, adding venue, Elo ratings, rest days, and form.
@@ -221,17 +224,17 @@ Run `01_clean.R` in RStudio. This script:
 
 ## Predict the next match
 
-Run `02_analysis.R` in RStudio. This script:
+Run `02-analysis.R` in RStudio. This script:
 
 1. Fits two Poisson regression models to predict:
    - England's goals
    - Opponent’s goals
 2. Simulates 1000 match results
-3. Saved the probabilities to `outputs/results.rds`
+3. Saves the probabilities to `outputs/results.rds`
 
 ## Visualise
 
-Run `03_plot.R` in RStudio. This script:
+Run `03-plot.R` in RStudio. This script:
 
 1. Loads the saved probabilities (`outputs/results.rds`).
 2. Creates a bar chart of predicted win/draw/loss.
@@ -252,7 +255,7 @@ source(here("scripts", "03-plot.R"))
 ```
 
 This script uses [`source`][source] to run the three scripts sequentially,
-avoiding the need to run in separately.
+avoiding the need to run them separately.
 
 [source]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html
 
@@ -376,14 +379,15 @@ git push origin main # <2>
 
 5. Back in the main window, click **Push origin** (top bar) to upload your commits to GitHub.
 
-
 :::
-
 
 # Reproducing your analysis from GitHub
 
 We'll now test that we can recreate our analysis from the online
-repository. The steps involved are:
+repository. This ensures your project can be reliably re-run on another
+computer or by another user.
+
+The steps involved are:
 
 1. 'Clone' the existing repository from GitHub.
 2. Restore the `renv` environment.
@@ -399,7 +403,7 @@ In the terminal:
 ```bash
 git clone https://github.com/username/your-repo.git # <1>
 ```
-1. 'Clone' the repository on GitHub to a local folder. Change `username` and
+1. 'Clone' the repository on GitHub to a local folder. Replace `username` and
    `your-repo` as appropriate.
 
 Then open the RStudio Project, and at the R console:

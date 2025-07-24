@@ -2422,10 +2422,10 @@ vertical-align: -.125em;
 <li>Committing your project to GitHub</li>
 <li>Restoring it from GitHub</li>
 </ol>
-<p>With the Women’s EURO 2025 final approaching this weekend, we’ll build a reproducible pipeline to predict England’s chance of winning the final against Spain, using information of their performance over the past year.</p>
+<p>With the Women’s EURO 2025 final approaching this weekend, we’ll build a reproducible pipeline to predict England’s chance of winning the final against Spain, using information on their performance over the past year.</p>
 <p>You will:</p>
 <ul>
-<li>Build models to predict England’s chance of winning their next match.</li>
+<li>Build models to predict England’s chance of winning their next match</li>
 <li>Simulate the likely outcome of the final.</li>
 <li>Use <code>here</code> for file paths and <code>renv</code> to lock package versions.</li>
 <li>Create a Git repository, version your code with git, and push it to GitHub.</li>
@@ -2512,7 +2512,7 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 </ol>
 <ul>
 <li>Go to <a href="https://github.com/settings/keys">GitHub → Settings → SSH and GPG keys</a>.</li>
-<li>Click “New SSH key” and paste your generated key.</li>
+<li>Click <strong>New SSH key</strong> and paste your generated key.</li>
 </ul>
 <ol start="4" type="1">
 <li><p>Tell Git to use the key:</p>
@@ -2587,11 +2587,12 @@ outputs/</code></pre>
 </section>
 <section id="run-the-three-scripts" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Run the three scripts</h1>
+<p>Once packages are installed and <code>renv</code> is initialised, you’re ready to run the analysis.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href>Import and clean data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href>Predict the next match</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href>Visualise</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Run <code>01_clean.R</code> in RStudio. This script:</p>
+<p>Run <code>01-clean.R</code> in RStudio. This script:</p>
 <ol type="1">
 <li>Imports the <code>fixtures.csv</code> dataset from the <code>data/raw</code> folder.</li>
 <li>Performs data cleaning, adding venue, Elo ratings, rest days, and form.</li>
@@ -2599,7 +2600,7 @@ outputs/</code></pre>
 </ol>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Run <code>02_analysis.R</code> in RStudio. This script:</p>
+<p>Run <code>02-analysis.R</code> in RStudio. This script:</p>
 <ol type="1">
 <li>Fits two Poisson regression models to predict:
 <ul>
@@ -2607,11 +2608,11 @@ outputs/</code></pre>
 <li>Opponent’s goals</li>
 </ul></li>
 <li>Simulates 1000 match results</li>
-<li>Saved the probabilities to <code>outputs/results.rds</code></li>
+<li>Saves the probabilities to <code>outputs/results.rds</code></li>
 </ol>
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
-<p>Run <code>03_plot.R</code> in RStudio. This script:</p>
+<p>Run <code>03-plot.R</code> in RStudio. This script:</p>
 <ol type="1">
 <li>Loads the saved probabilities (<code>outputs/results.rds</code>).</li>
 <li>Creates a bar chart of predicted win/draw/loss.</li>
@@ -2630,7 +2631,7 @@ outputs/</code></pre>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts&quot;</span>, <span class="st">&quot;02-analysis.R&quot;</span>))</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts&quot;</span>, <span class="st">&quot;03-plot.R&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This script uses <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html"><code>source</code></a> to run the three scripts sequentially, avoiding the need to run in separately.</p>
+<p>This script uses <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html"><code>source</code></a> to run the three scripts sequentially, avoiding the need to run them separately.</p>
 <p>Run the <code>run.R</code> script either by clicking <kbd>Run</kbd> or at the console by typing:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;run.R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -2764,7 +2765,8 @@ outputs/</code></pre>
 </section>
 <section id="reproducing-your-analysis-from-github" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Reproducing your analysis from GitHub</h1>
-<p>We’ll now test that we can recreate our analysis from the online repository. The steps involved are:</p>
+<p>We’ll now test that we can recreate our analysis from the online repository. This ensures your project can be reliably re-run on another computer or by another user.</p>
+<p>The steps involved are:</p>
 <ol type="1">
 <li>‘Clone’ the existing repository from GitHub.</li>
 <li>Restore the <code>renv</code> environment.</li>
@@ -2779,7 +2781,7 @@ outputs/</code></pre>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-13" data-code-lines="1" data-code-annotation="1">‘Clone’ the repository on GitHub to a local folder. Change <code>username</code> and <code>your-repo</code> as appropriate.</span>
+<span data-code-cell="annotated-cell-13" data-code-lines="1" data-code-annotation="1">‘Clone’ the repository on GitHub to a local folder. Replace <code>username</code> and <code>your-repo</code> as appropriate.</span>
 </dd>
 </dl>
 <p>Then open the RStudio Project, and at the R console:</p>
