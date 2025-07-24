@@ -2,13 +2,6 @@
   font-size: 1.2em;
 }
 
-.alert {
-  background-color: rgba(0, 129, 210, 0.3);
-  padding: 0.2rem 0.7rem;
-  border-radius: 10px;
-  font-weight: 600;
-}
-
 .v-center-container {
   display: flex;
   justify-content: center;
