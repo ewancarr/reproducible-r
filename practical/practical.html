@@ -2528,11 +2528,10 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 </section>
 <section id="create-a-project-in-rstudio" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Create a project in RStudio</h1>
-<ol type="i">
-<li><p>Create a new RStudio Project:</p>
-<p><kbd>File</kbd> &gt; <kbd>New Project</kbd> &gt; <kbd>New Directory</kbd></p></li>
-<li><p>Give it an appropriate name (e.g., <code>euros-prediction</code>).</p></li>
-</ol>
+<p>Create a new RStudio Project and give it an appropriate name (e.g., <code>euros-prediction</code>):</p>
+<blockquote class="blockquote">
+<p><kbd><strong>File</strong></kbd> → <kbd><strong>New Project</strong></kbd> → <kbd><strong>New Directory</strong></kbd></p>
+</blockquote>
 </section>
 <section id="download-the-scripts-and-datasets" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Download the scripts and datasets</h1>
@@ -2544,7 +2543,8 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 <li><a href="https://raw.githubusercontent.com/ewancarr/reproducible-r/refs/heads/main/practical/1-data/raw/fixtures.csv"><code>fixtures.csv</code></a></li>
 </ul>
 <p>Put these inside your project folder and recreate the structure shown below:</p>
-<pre class="text"><code>1-data/
+<div class="cell" style="padding-left:4rem; font-size: 1.2rem;">
+<pre class="plain cell-code"><code>1-data/
 ├── raw/
 │   └── fixtures.csv
 └── clean/
@@ -2553,6 +2553,7 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 ├── 02-analysis.R
 └── 03-plot.R
 outputs/</code></pre>
+</div>
 </section>
 <section id="initialise-renv-and-install-the-required-packages" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Initialise <code>renv</code> and install the required packages</h1>
@@ -2594,9 +2595,9 @@ outputs/</code></pre>
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>Run <code>01-clean.R</code> in RStudio. This script:</p>
 <ol type="1">
-<li>Imports the <code>fixtures.csv</code> dataset from the <code>data/raw</code> folder.</li>
+<li>Imports the <code>fixtures.csv</code> dataset from the <code>1-data/raw</code> folder.</li>
 <li>Performs data cleaning, adding venue, Elo ratings, rest days, and form.</li>
-<li>Saves a cleaned dataset to <code>data/clean/fixtures.rds</code>.</li>
+<li>Saves a cleaned dataset to <code>1-data/clean/fixtures.rds</code>.</li>
 </ol>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
@@ -2627,9 +2628,9 @@ outputs/</code></pre>
 <p>Create a new script <code>run.R</code> at the project root with the contents:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts&quot;</span>, <span class="st">&quot;01-clean.R&quot;</span>))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts&quot;</span>, <span class="st">&quot;02-analysis.R&quot;</span>))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts&quot;</span>, <span class="st">&quot;03-plot.R&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;2-scripts&quot;</span>, <span class="st">&quot;01-clean.R&quot;</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;2-scripts&quot;</span>, <span class="st">&quot;02-analysis.R&quot;</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;2-scripts&quot;</span>, <span class="st">&quot;03-plot.R&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This script uses <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html"><code>source</code></a> to run the three scripts sequentially, avoiding the need to run them separately.</p>
 <p>Run the <code>run.R</code> script either by clicking <kbd>Run</kbd> or at the console by typing:</p>
@@ -2675,8 +2676,8 @@ outputs/</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href>Terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href>GitHub Desktop</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-11-1" class="code-annotation-target"><a href="#annotated-cell-11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/<span class="pp">*</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-11-2" class="code-annotation-target"><a href="#annotated-cell-11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add data/<span class="pp">*</span></span>
+<div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-11-1" class="code-annotation-target"><a href="#annotated-cell-11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add 1-data/<span class="pp">*</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-11-2" class="code-annotation-target"><a href="#annotated-cell-11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add 2-scripts/<span class="pp">*</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="3" onclick="event.preventDefault();" href>3</a><span id="annotated-cell-11-3" class="code-annotation-target"><a href="#annotated-cell-11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add run.R</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="4" onclick="event.preventDefault();" href>4</a><span id="annotated-cell-11-4" class="code-annotation-target"><a href="#annotated-cell-11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add renv.lock</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="5" onclick="event.preventDefault();" href>5</a><span id="annotated-cell-11-5" class="code-annotation-target"><a href="#annotated-cell-11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add euros-prediction.Rproj</span>
@@ -2684,11 +2685,11 @@ outputs/</code></pre>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-11" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="1" data-code-annotation="1">Add all files in the ‘scripts’ folder.</span>
+<span data-code-cell="annotated-cell-11" data-code-lines="1" data-code-annotation="1">Add all files in the ‘1-data’ folder.</span>
 </dd>
 <dt data-target-cell="annotated-cell-11" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="2" data-code-annotation="2">Add all files in the ‘data’ folder.</span>
+<span data-code-cell="annotated-cell-11" data-code-lines="2" data-code-annotation="2">Add all files in the ‘2-scripts’ folder.</span>
 </dd>
 <dt data-target-cell="annotated-cell-11" data-target-annotation="3">3</dt>
 <dd>
@@ -2713,8 +2714,8 @@ outputs/</code></pre>
 <li><p>Open <strong>GitHub Desktop</strong> and select your repository.</p></li>
 <li><p>In the <strong>Changes</strong> tab, tick the checkboxes to stage the following:</p>
 <ul>
-<li>All files in the <code>scripts/</code> folder</li>
-<li>All files in the <code>data/</code> folder</li>
+<li>All files in the <code>1-data/</code> folder</li>
+<li>All files in the <code>2-scripts/</code> folder</li>
 <li>The <code>run.R</code> file</li>
 <li>The <code>renv.lock</code> file</li>
 </ul></li>
@@ -2918,6 +2919,11 @@ outputs/</code></pre>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

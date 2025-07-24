@@ -17,6 +17,7 @@ format:
     toc: true
     number-sections: true
     embed-resources: true
+    link-external-newwindow: true
 ---
 
 <div style="
@@ -154,11 +155,9 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 
 # Create a project in RStudio
 
-i. Create a new RStudio Project:
+Create a new RStudio Project and give it an appropriate name (e.g., `euros-prediction`):
 
-    <kbd>File</kbd> > <kbd>New Project</kbd> > <kbd>New Directory</kbd>
-
-ii. Give it an appropriate name (e.g., `euros-prediction`).
+> <kbd>**File**</kbd> → <kbd>**New Project**</kbd> →  <kbd>**New Directory**</kbd>
 
 # Download the scripts and datasets
 
@@ -176,7 +175,7 @@ Put these inside your project folder and recreate the structure shown below:
 [plot]: https://github.com/ewancarr/reproducible-r/raw/refs/heads/main/practical/2-scripts/03-plot.R
 [fixtures]: https://raw.githubusercontent.com/ewancarr/reproducible-r/refs/heads/main/practical/1-data/raw/fixtures.csv
 
-```text
+```{plain style="padding-left:4rem; font-size: 1.2rem;"}
 1-data/
 ├── raw/
 │   └── fixtures.csv
@@ -218,9 +217,9 @@ analysis.
 
 Run `01-clean.R` in RStudio. This script:
 
-1. Imports the `fixtures.csv` dataset from the `data/raw` folder.
+1. Imports the `fixtures.csv` dataset from the `1-data/raw` folder.
 2. Performs data cleaning, adding venue, Elo ratings, rest days, and form.
-3. Saves a cleaned dataset to `data/clean/fixtures.rds`.
+3. Saves a cleaned dataset to `1-data/clean/fixtures.rds`.
 
 ## Predict the next match
 
@@ -249,9 +248,9 @@ Create a new script `run.R` at the project root with the contents:
 ```{r}
 #| eval: false
 library(here)
-source(here("scripts", "01-clean.R"))
-source(here("scripts", "02-analysis.R"))
-source(here("scripts", "03-plot.R"))
+source(here("2-scripts", "01-clean.R"))
+source(here("2-scripts", "02-analysis.R"))
+source(here("2-scripts", "03-plot.R"))
 ```
 
 This script uses [`source`][source] to run the three scripts sequentially,
@@ -314,15 +313,15 @@ Having initialised the empty repository, we now need to add our files.
 ## Terminal
 
 ```bash
-git add scripts/* # <1>
-git add data/* # <2>
+git add 1-data/* # <1>
+git add 2-scripts/* # <2>
 git add run.R # <3>
 git add renv.lock # <4>
 git add euros-prediction.Rproj # <5>
 git commit -m "Initial commit" # <6>
 ```
-1. Add all files in the 'scripts' folder.
-2. Add all files in the 'data' folder.
+1. Add all files in the '1-data' folder.
+2. Add all files in the '2-scripts' folder.
 3. Add the `run.R` script.
 4. Add the `renv.lock` lockfile.
 5. Add your RStudio Project file; change the name as appropriate.
@@ -333,8 +332,8 @@ git commit -m "Initial commit" # <6>
 1. Open **GitHub Desktop** and select your repository.
 
 2. In the **Changes** tab, tick the checkboxes to stage the following:
-   - All files in the `scripts/` folder
-   - All files in the `data/` folder
+   - All files in the `1-data/` folder
+   - All files in the `2-scripts/` folder
    - The `run.R` file
    - The `renv.lock` file
 
