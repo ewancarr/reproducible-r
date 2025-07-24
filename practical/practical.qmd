@@ -38,13 +38,13 @@ This practical will bring together the steps covered in the lecture by:
 2. Committing your project to GitHub
 3. Restoring it from GitHub
 
-With the Women's EURO 2025 final approaching this weekend, we'll build a
+With the **Women's EURO 2025** final approaching this weekend, we'll build a
 reproducible pipeline to predict England's chance of winning the final
 against Spain, using information on their performance over the past year.
 
 You will:
 
-* Build models to predict England's chance of winning their next match
+* Build models to predict England's chance of winning their next match.
 * Simulate the likely outcome of the final.
 * Use `here` for file paths and `renv` to lock package versions.
 * Create a Git repository, version your code with git, and push it to GitHub.
@@ -54,20 +54,28 @@ You will:
 
 </div>
 
-# Software  {.unnumbered}
+# Setup {.unnumbered}
+
+## Software  {.unnumbered}
 
 To complete this practical, you'll need:
 
 * R (≥ 4.3)
 * RStudio
 * Git, used for version control
-* GitHub Desktop (optional) – a user-friendly way to interact with Git and
+* [GitHub Desktop](https://github.com/apps/desktop) (optional), a user-friendly way to interact with Git and GitHub.
 
 GitHub Desktop includes Git, so you don't need to install Git separately if you
 use it. However, we recommend installing Git directly to ensure compatibility
 with RStudio's Git features.
 
 ## Installing Git {.unnumbered}
+
+::: {.callout-warning icon="false" title="<span style='margin-right: 0.5em;'>💡</span>If you're new to the command line, use GitHub Desktop"}
+
+[GitHub Desktop](https://github.com/apps/desktop) provides a simple interface for common tasks like committing, pushing, and pulling code — no terminal required. It’s a good starting point if you’re unfamiliar with the command line.
+
+:::
 
 ::: {.panel-tabset}
 
@@ -100,9 +108,7 @@ GitHub, by following the [instructions here](https://desktop.github.com).
 
 :::
 
-::: {.callout-tip collapse=true appearance="minimal"}
-
-### <span style="font-size:1.5em; margin-bottom: 2rem; padding-bottom: 2rem;">🔐 Authentication</span>
+## Authenticating with GitHub {.unnumbered}
 
 <p style="padding-top: 1rem;">
 To push and pull from GitHub, you need to authenticate. There are two options:
@@ -125,19 +131,19 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 
 1. Generate a key (if you don’t have one):
 
-   ```bash
-   ssh-keygen -t ed25519 -C "your_email@example.com"
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 
 2. Copy the key to your clipboard
 
-   ```bash
-   # macOS
-   pbcopy < ~/.ssh/id_ed25519.pub
+```bash
+# macOS
+pbcopy < ~/.ssh/id_ed25519.pub
 
-   # Windows using Git Bash
-   cat ~/.ssh/id_ed25519.pub | clip
-   ```
+# Windows using Git Bash
+cat ~/.ssh/id_ed25519.pub | clip
+```
 
 3. Add it to GitHub:
 - Go to [GitHub → Settings → SSH and GPG keys](https://github.com/settings/keys).
@@ -145,11 +151,9 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 
 4. Tell Git to use the key:
 
-   ```bash
-   git remote set-url origin git@github.com:username/repo.git
-   ```
-
-:::
+```bash
+git remote set-url origin git@github.com:username/repo.git
+```
 
 :::
 
@@ -175,7 +179,7 @@ Put these inside your project folder and recreate the structure shown below:
 [plot]: https://github.com/ewancarr/reproducible-r/raw/refs/heads/main/practical/2-scripts/03-plot.R
 [fixtures]: https://raw.githubusercontent.com/ewancarr/reproducible-r/refs/heads/main/practical/1-data/raw/fixtures.csv
 
-```{plain style="padding-left:4rem; font-size: 1.2rem;"}
+```{text style="padding-left:4rem; font-size: 1.2rem;"}
 1-data/
 ├── raw/
 │   └── fixtures.csv
@@ -245,7 +249,7 @@ Run `03-plot.R` in RStudio. This script:
 
 Create a new script `run.R` at the project root with the contents:
 
-```{r}
+```{r filename="run.R"}
 #| eval: false
 library(here)
 source(here("2-scripts", "01-clean.R"))
@@ -258,9 +262,7 @@ avoiding the need to run them separately.
 
 [source]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html
 
-Run the `run.R` script either by clicking <kbd>Run</kbd> or at the console by
-typing:
-
+Run the `run.R` script either by clicking <kbd>**Run**</kbd> or by typing at the console:
 
 ```r
 source("run.R")
@@ -304,7 +306,7 @@ git init
 
 :::
 
-# 'Commit' our files to the local repository
+# Commit files to the local repository
 
 Having initialised the empty repository, we now need to add our files.
 
@@ -344,24 +346,20 @@ git commit -m "Initial commit" # <6>
 
 :::
 
-# Connect our local repository to GitHub.com
+# Create an empty repository on GitHub
 
-If you haven't already, create an account on [GitHub.com](https://github.com).
+1. If you haven't already, create an account on
+   [GitHub.com](https://github.com).
+
+2. Then, go to <https://github.com/new> and create a new, empty repository with
+   an appropriate name (e.g., `euros-prediction`)
+
+# Connect our local repository to GitHub
+
+We then need to connect your local repository with one you just created on
+GitHub.
 
 ::: {.panel-tabset}
-
-## Terminal
-
-On GitHub.com, create a new (empty) repository.
-
-Then, in the terminal:
-
-```bash
-git remote add origin git@github.com:username/repo.git # <1>
-git push origin main # <2>
-```
-1. Set the `remote` to point to the new repository on Github. You will need to replace the URL with the corresponding URL for your repository.
-2. 'Push' the local history to GitHub.
 
 ## GitHub Desktop
 
@@ -378,13 +376,24 @@ git push origin main # <2>
 
 5. Back in the main window, click **Push origin** (top bar) to upload your commits to GitHub.
 
+## Terminal
+
+In the terminal, you can do this by typing:
+
+```bash
+git remote add origin git@github.com:username/repo.git # <1>
+git push origin main # <2>
+```
+1. Set the `remote` to point to the new repository on Github. You will need to replace the URL with the corresponding URL for your repository.
+2. 'Push' the local history to GitHub.
+
 :::
 
 # Reproducing your analysis from GitHub
 
-We'll now test that we can recreate our analysis from the online
-repository. This ensures your project can be reliably re-run on another
-computer or by another user.
+We'll now test that we can recreate our analysis from the online repository.
+This ensures your project can be reliably re-run on another computer or by
+another user.
 
 The steps involved are:
 
@@ -395,6 +404,18 @@ The steps involved are:
 
 ::: {.panel-tabset}
 
+## GitHub Desktop
+
+1. <kbd>**File**</kbd> → <kbd>**Clone Repository…**</kbd>
+2. Choose your repository.
+
+Then open the RStudio Project, and at the R console:
+
+```r
+renv::restore()
+source("run.R")
+```
+
 ## Terminal
 
 In the terminal:
@@ -404,20 +425,6 @@ git clone https://github.com/username/your-repo.git # <1>
 ```
 1. 'Clone' the repository on GitHub to a local folder. Replace `username` and
    `your-repo` as appropriate.
-
-Then open the RStudio Project, and at the R console:
-
-```r
-renv::restore()
-source("run.R")
-```
-
----
-
-## GitHub Desktop
-
-1. **File** > **Clone Repository…**
-2. Choose your repository.
 
 Then open the RStudio Project, and at the R console:
 

@@ -2347,9 +2347,11 @@ vertical-align: -.125em;
    
   <ul>
   <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
   <ul class="collapse">
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
   <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git">Installing Git</a></li>
+  <li><a href="#authenticating-with-github" id="toc-authenticating-with-github" class="nav-link" data-scroll-target="#authenticating-with-github">Authenticating with GitHub</a></li>
   </ul></li>
   <li><a href="#create-a-project-in-rstudio" id="toc-create-a-project-in-rstudio" class="nav-link" data-scroll-target="#create-a-project-in-rstudio"><span class="header-section-number">1</span> Create a project in RStudio</a></li>
   <li><a href="#download-the-scripts-and-datasets" id="toc-download-the-scripts-and-datasets" class="nav-link" data-scroll-target="#download-the-scripts-and-datasets"><span class="header-section-number">2</span> Download the scripts and datasets</a></li>
@@ -2357,10 +2359,11 @@ vertical-align: -.125em;
   <li><a href="#run-the-three-scripts" id="toc-run-the-three-scripts" class="nav-link" data-scroll-target="#run-the-three-scripts"><span class="header-section-number">4</span> Run the three scripts</a></li>
   <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">5</span> Putting it all together</a></li>
   <li><a href="#initialise-the-git-repository" id="toc-initialise-the-git-repository" class="nav-link" data-scroll-target="#initialise-the-git-repository"><span class="header-section-number">6</span> Initialise the Git repository</a></li>
-  <li><a href="#commit-our-files-to-the-local-repository" id="toc-commit-our-files-to-the-local-repository" class="nav-link" data-scroll-target="#commit-our-files-to-the-local-repository"><span class="header-section-number">7</span> ‘Commit’ our files to the local repository</a></li>
-  <li><a href="#connect-our-local-repository-to-github.com" id="toc-connect-our-local-repository-to-github.com" class="nav-link" data-scroll-target="#connect-our-local-repository-to-github.com"><span class="header-section-number">8</span> Connect our local repository to GitHub.com</a></li>
-  <li><a href="#reproducing-your-analysis-from-github" id="toc-reproducing-your-analysis-from-github" class="nav-link" data-scroll-target="#reproducing-your-analysis-from-github"><span class="header-section-number">9</span> Reproducing your analysis from GitHub</a></li>
-  <li><a href="#adding-a-readme-file" id="toc-adding-a-readme-file" class="nav-link" data-scroll-target="#adding-a-readme-file"><span class="header-section-number">10</span> Adding a ‘README’ file</a></li>
+  <li><a href="#commit-files-to-the-local-repository" id="toc-commit-files-to-the-local-repository" class="nav-link" data-scroll-target="#commit-files-to-the-local-repository"><span class="header-section-number">7</span> Commit files to the local repository</a></li>
+  <li><a href="#create-an-empty-repository-on-github" id="toc-create-an-empty-repository-on-github" class="nav-link" data-scroll-target="#create-an-empty-repository-on-github"><span class="header-section-number">8</span> Create an empty repository on GitHub</a></li>
+  <li><a href="#connect-our-local-repository-to-github" id="toc-connect-our-local-repository-to-github" class="nav-link" data-scroll-target="#connect-our-local-repository-to-github"><span class="header-section-number">9</span> Connect our local repository to GitHub</a></li>
+  <li><a href="#reproducing-your-analysis-from-github" id="toc-reproducing-your-analysis-from-github" class="nav-link" data-scroll-target="#reproducing-your-analysis-from-github"><span class="header-section-number">10</span> Reproducing your analysis from GitHub</a></li>
+  <li><a href="#adding-a-readme-file" id="toc-adding-a-readme-file" class="nav-link" data-scroll-target="#adding-a-readme-file"><span class="header-section-number">11</span> Adding a ‘README’ file</a></li>
   </ul>
 </nav>
 </div>
@@ -2422,10 +2425,10 @@ vertical-align: -.125em;
 <li>Committing your project to GitHub</li>
 <li>Restoring it from GitHub</li>
 </ol>
-<p>With the Women’s EURO 2025 final approaching this weekend, we’ll build a reproducible pipeline to predict England’s chance of winning the final against Spain, using information on their performance over the past year.</p>
+<p>With the <strong>Women’s EURO 2025</strong> final approaching this weekend, we’ll build a reproducible pipeline to predict England’s chance of winning the final against Spain, using information on their performance over the past year.</p>
 <p>You will:</p>
 <ul>
-<li>Build models to predict England’s chance of winning their next match</li>
+<li>Build models to predict England’s chance of winning their next match.</li>
 <li>Simulate the likely outcome of the final.</li>
 <li>Use <code>here</code> for file paths and <code>renv</code> to lock package versions.</li>
 <li>Create a Git repository, version your code with git, and push it to GitHub.</li>
@@ -2437,18 +2440,34 @@ vertical-align: -.125em;
 </figure>
 </div>
 </section>
-<section id="software" class="level1 unnumbered">
-<h1 class="unnumbered">Software</h1>
+<section id="setup" class="level1 unnumbered">
+<h1 class="unnumbered">Setup</h1>
+<section id="software" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="software">Software</h2>
 <p>To complete this practical, you’ll need:</p>
 <ul>
 <li>R (≥ 4.3)</li>
 <li>RStudio</li>
 <li>Git, used for version control</li>
-<li>GitHub Desktop (optional) – a user-friendly way to interact with Git and</li>
+<li><a href="https://github.com/apps/desktop">GitHub Desktop</a> (optional), a user-friendly way to interact with Git and GitHub.</li>
 </ul>
 <p>GitHub Desktop includes Git, so you don’t need to install Git separately if you use it. However, we recommend installing Git directly to ensure compatibility with RStudio’s Git features.</p>
+</section>
 <section id="installing-git" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="installing-git">Installing Git</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled" title="&lt;span style=&#39;margin-right: 0.5em;&#39;&gt;💡&lt;/span&gt;If you&#39;re new to the command line, use GitHub Desktop">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span style="margin-right: 0.5em;">💡</span>If you’re new to the command line, use GitHub Desktop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://github.com/apps/desktop">GitHub Desktop</a> provides a simple interface for common tasks like committing, pushing, and pulling code — no terminal required. It’s a good starting point if you’re unfamiliar with the command line.</p>
+</div>
+</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href>macOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href>Windows</a></li></ul>
 <div class="tab-content">
@@ -2468,18 +2487,9 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span style="font-size:1.5em; margin-bottom: 2rem; padding-bottom: 2rem;">🔐 Authentication</span>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+</section>
+<section id="authenticating-with-github" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="authenticating-with-github">Authenticating with GitHub</h2>
 <p style="padding-top: 1rem;">
 To push and pull from GitHub, you need to authenticate. There are two options:
 </p>
@@ -2500,27 +2510,28 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 <li>Requires access to a command line.</li>
 </ul>
 <ol type="1">
-<li><p>Generate a key (if you don’t have one):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">&quot;your_email@example.com&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Copy the key to your clipboard</p>
+<li>Generate a key (if you don’t have one):</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">&quot;your_email@example.com&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Copy the key to your clipboard</li>
+</ol>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_ed25519.pub</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows using Git Bash</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub <span class="kw">|</span> <span class="ex">clip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Add it to GitHub:</p></li>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub <span class="kw">|</span> <span class="ex">clip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Add it to GitHub:</li>
 </ol>
 <ul>
 <li>Go to <a href="https://github.com/settings/keys">GitHub → Settings → SSH and GPG keys</a>.</li>
 <li>Click <strong>New SSH key</strong> and paste your generated key.</li>
 </ul>
 <ol start="4" type="1">
-<li><p>Tell Git to use the key:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin git@github.com:username/repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Tell Git to use the key:</li>
 </ol>
-</div>
-</div>
-</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin git@github.com:username/repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2544,7 +2555,7 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 </ul>
 <p>Put these inside your project folder and recreate the structure shown below:</p>
 <div class="cell" style="padding-left:4rem; font-size: 1.2rem;">
-<pre class="plain cell-code"><code>1-data/
+<pre class="text cell-code"><code>1-data/
 ├── raw/
 │   └── fixtures.csv
 └── clean/
@@ -2627,13 +2638,18 @@ outputs/</code></pre>
 <h1 data-number="5"><span class="header-section-number">5</span> Putting it all together</h1>
 <p>Create a new script <code>run.R</code> at the project root with the contents:</p>
 <div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>run.R</strong></pre>
+</div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;2-scripts&quot;</span>, <span class="st">&quot;01-clean.R&quot;</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;2-scripts&quot;</span>, <span class="st">&quot;02-analysis.R&quot;</span>))</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;2-scripts&quot;</span>, <span class="st">&quot;03-plot.R&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
 <p>This script uses <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html"><code>source</code></a> to run the three scripts sequentially, avoiding the need to run them separately.</p>
-<p>Run the <code>run.R</code> script either by clicking <kbd>Run</kbd> or at the console by typing:</p>
+<p>Run the <code>run.R</code> script either by clicking <kbd><strong>Run</strong></kbd> or by typing at the console:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;run.R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="initialise-the-git-repository" class="level1" data-number="6">
@@ -2669,43 +2685,43 @@ outputs/</code></pre>
 </div>
 </div>
 </section>
-<section id="commit-our-files-to-the-local-repository" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> ‘Commit’ our files to the local repository</h1>
+<section id="commit-files-to-the-local-repository" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Commit files to the local repository</h1>
 <p>Having initialised the empty repository, we now need to add our files.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href>Terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href>GitHub Desktop</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-11-1" class="code-annotation-target"><a href="#annotated-cell-11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add 1-data/<span class="pp">*</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-11-2" class="code-annotation-target"><a href="#annotated-cell-11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add 2-scripts/<span class="pp">*</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="3" onclick="event.preventDefault();" href>3</a><span id="annotated-cell-11-3" class="code-annotation-target"><a href="#annotated-cell-11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add run.R</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="4" onclick="event.preventDefault();" href>4</a><span id="annotated-cell-11-4" class="code-annotation-target"><a href="#annotated-cell-11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add renv.lock</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="5" onclick="event.preventDefault();" href>5</a><span id="annotated-cell-11-5" class="code-annotation-target"><a href="#annotated-cell-11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add euros-prediction.Rproj</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="6" onclick="event.preventDefault();" href>6</a><span id="annotated-cell-11-6" class="code-annotation-target"><a href="#annotated-cell-11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Initial commit&quot;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="annotated-cell-12"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-12-1" class="code-annotation-target"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add 1-data/<span class="pp">*</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-12-2" class="code-annotation-target"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add 2-scripts/<span class="pp">*</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="3" onclick="event.preventDefault();" href>3</a><span id="annotated-cell-12-3" class="code-annotation-target"><a href="#annotated-cell-12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add run.R</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="4" onclick="event.preventDefault();" href>4</a><span id="annotated-cell-12-4" class="code-annotation-target"><a href="#annotated-cell-12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add renv.lock</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="5" onclick="event.preventDefault();" href>5</a><span id="annotated-cell-12-5" class="code-annotation-target"><a href="#annotated-cell-12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add euros-prediction.Rproj</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="6" onclick="event.preventDefault();" href>6</a><span id="annotated-cell-12-6" class="code-annotation-target"><a href="#annotated-cell-12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Initial commit&quot;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-11" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="1" data-code-annotation="1">Add all files in the ‘1-data’ folder.</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="1" data-code-annotation="1">Add all files in the ‘1-data’ folder.</span>
 </dd>
-<dt data-target-cell="annotated-cell-11" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-12" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="2" data-code-annotation="2">Add all files in the ‘2-scripts’ folder.</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="2" data-code-annotation="2">Add all files in the ‘2-scripts’ folder.</span>
 </dd>
-<dt data-target-cell="annotated-cell-11" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-12" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="3" data-code-annotation="3">Add the <code>run.R</code> script.</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="3" data-code-annotation="3">Add the <code>run.R</code> script.</span>
 </dd>
-<dt data-target-cell="annotated-cell-11" data-target-annotation="4">4</dt>
+<dt data-target-cell="annotated-cell-12" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="4" data-code-annotation="4">Add the <code>renv.lock</code> lockfile.</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="4" data-code-annotation="4">Add the <code>renv.lock</code> lockfile.</span>
 </dd>
-<dt data-target-cell="annotated-cell-11" data-target-annotation="5">5</dt>
+<dt data-target-cell="annotated-cell-12" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="5" data-code-annotation="5">Add your RStudio Project file; change the name as appropriate.</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="5" data-code-annotation="5">Add your RStudio Project file; change the name as appropriate.</span>
 </dd>
-<dt data-target-cell="annotated-cell-11" data-target-annotation="6">6</dt>
+<dt data-target-cell="annotated-cell-12" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="6" data-code-annotation="6">Commit the new files with a short message (specified by <code>-m</code>)</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="6" data-code-annotation="6">Commit the new files with a short message (specified by <code>-m</code>)</span>
 </dd>
 </dl>
 </div>
@@ -2726,29 +2742,20 @@ outputs/</code></pre>
 </div>
 </div>
 </section>
-<section id="connect-our-local-repository-to-github.com" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Connect our local repository to GitHub.com</h1>
-<p>If you haven’t already, create an account on <a href="https://github.com">GitHub.com</a>.</p>
+<section id="create-an-empty-repository-on-github" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Create an empty repository on GitHub</h1>
+<ol type="1">
+<li><p>If you haven’t already, create an account on <a href="https://github.com">GitHub.com</a>.</p></li>
+<li><p>Then, go to <a href="https://github.com/new" class="uri">https://github.com/new</a> and create a new, empty repository with an appropriate name (e.g., <code>euros-prediction</code>)</p></li>
+</ol>
+</section>
+<section id="connect-our-local-repository-to-github" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Connect our local repository to GitHub</h1>
+<p>We then need to connect your local repository with one you just created on GitHub.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href>Terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href>GitHub Desktop</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href>GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href>Terminal</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
-<p>On GitHub.com, create a new (empty) repository.</p>
-<p>Then, in the terminal:</p>
-<div class="sourceCode" id="annotated-cell-12"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-12-1" class="code-annotation-target"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:username/repo.git</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-12-2" class="code-annotation-target"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-12" data-code-lines="1" data-code-annotation="1">Set the <code>remote</code> to point to the new repository on Github. You will need to replace the URL with the corresponding URL for your repository.</span>
-</dd>
-<dt data-target-cell="annotated-cell-12" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-12" data-code-lines="2" data-code-annotation="2">‘Push’ the local history to GitHub.</span>
-</dd>
-</dl>
-</div>
-<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <ol type="1">
 <li><p>On GitHub.com, create a new (empty) repository.</p></li>
 <li><p>In <strong>GitHub Desktop</strong>, go to <strong>Repository</strong> → <strong>Repository Settings…</strong></p></li>
@@ -2761,11 +2768,26 @@ outputs/</code></pre>
 <li><p>Back in the main window, click <strong>Push origin</strong> (top bar) to upload your commits to GitHub.</p></li>
 </ol>
 </div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>In the terminal, you can do this by typing:</p>
+<div class="sourceCode" id="annotated-cell-13"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-13-1" class="code-annotation-target"><a href="#annotated-cell-13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:username/repo.git</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-13-2" class="code-annotation-target"><a href="#annotated-cell-13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-lines="1" data-code-annotation="1">Set the <code>remote</code> to point to the new repository on Github. You will need to replace the URL with the corresponding URL for your repository.</span>
+</dd>
+<dt data-target-cell="annotated-cell-13" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-lines="2" data-code-annotation="2">‘Push’ the local history to GitHub.</span>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 </section>
-<section id="reproducing-your-analysis-from-github" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Reproducing your analysis from GitHub</h1>
+<section id="reproducing-your-analysis-from-github" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Reproducing your analysis from GitHub</h1>
 <p>We’ll now test that we can recreate our analysis from the online repository. This ensures your project can be reliably re-run on another computer or by another user.</p>
 <p>The steps involved are:</p>
 <ol type="1">
@@ -2774,27 +2796,26 @@ outputs/</code></pre>
 <li>Run the <code>run.R</code> script to repeat the analysis.</li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href>Terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href>GitHub Desktop</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href>GitHub Desktop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href>Terminal</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
-<p>In the terminal:</p>
-<div class="sourceCode" id="annotated-cell-13"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-13-1" class="code-annotation-target"><a href="#annotated-cell-13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/username/your-repo.git</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-13" data-code-lines="1" data-code-annotation="1">‘Clone’ the repository on GitHub to a local folder. Replace <code>username</code> and <code>your-repo</code> as appropriate.</span>
-</dd>
-</dl>
+<ol type="1">
+<li><kbd><strong>File</strong></kbd> → <kbd><strong>Clone Repository…</strong></kbd></li>
+<li>Choose your repository.</li>
+</ol>
 <p>Then open the RStudio Project, and at the R console:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;run.R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
 </div>
 <div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
-<ol type="1">
-<li><strong>File</strong> &gt; <strong>Clone Repository…</strong></li>
-<li>Choose your repository.</li>
-</ol>
+<p>In the terminal:</p>
+<div class="sourceCode" id="annotated-cell-15"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-15-1" class="code-annotation-target"><a href="#annotated-cell-15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/username/your-repo.git</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-15" data-code-lines="1" data-code-annotation="1">‘Clone’ the repository on GitHub to a local folder. Replace <code>username</code> and <code>your-repo</code> as appropriate.</span>
+</dd>
+</dl>
 <p>Then open the RStudio Project, and at the R console:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;run.R&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2802,8 +2823,8 @@ outputs/</code></pre>
 </div>
 </div>
 </section>
-<section id="adding-a-readme-file" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Adding a ‘README’ file</h1>
+<section id="adding-a-readme-file" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Adding a ‘README’ file</h1>
 <ol type="1">
 <li>Write a <code>README.md</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> file in your project folder. Briefly describe the analysis and steps needed to reproduce.</li>
 <li>Add and commit this file to your local repository.</li>
