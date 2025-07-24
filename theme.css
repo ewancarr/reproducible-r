@@ -8,3 +8,10 @@
   border-radius: 10px;
   font-weight: 600;
 }
+
+.v-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}

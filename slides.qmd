@@ -13,11 +13,14 @@ from: markdown+emoji
 format:
   revealjs:
     theme: [simple, theme.scss]
+    template-partials:
+      - title-slide.html
     css: theme.css
+    output-file: index.html
     highlight-style: atom-one
     code-line-numbers: false
     echo: true
-    output-file: index.html
+    slide-number: true
 ---
 
 ## 🖼️
@@ -28,7 +31,16 @@ format:
 * Reproducibility is *necessary* for open science, but not *sufficient*.
   Broader change in motivations, incentives, and culture is essential.
 
-<div style="border: 3px solid #ccc; padding: 0.5em; border-radius: 10px; background-color: #f9f9f9; margin-top: 1em; padding-left: 1em; font-size: 2rem;">
+<div style="
+border: 3px solid #ccc;
+padding: 1.5rem;
+padding-bottom: 0.5rem;
+border-radius: 10px;
+background-color: #f9f9f9;
+margin-top: 0.5rem;
+padding-left: 3rem;
+font-size: 2rem;
+">
 
   * Reset academic publishing models.
   * Reward high quality team science regardless of null findings.
@@ -64,9 +76,7 @@ format:
 
 :::: {.columns}
 
-::: {.column width="3%"}
-:::
-::: {.column width="60%"}
+::: {.column width="60%" style="padding-left: 1rem;"}
 1. Code and data hygiene
 2. Version control with Git
 3. Managing your environment
@@ -74,20 +84,14 @@ format:
 5. Wrap-up
 :::
 
-::: {.column width="37%"}
+::: {.column width="40%"}
 
 ![](images/signpost.png){fig-align="right" width="80%"}
 :::
 
 ::::
 
-## {.center}
-
-:::{.r-stack}
-I'm assuming you know R.
-:::
-
-# 🫣<br><br>Not doing horrible things with your data or code {background-color="#003049"}
+# 🫣<br><br>Not doing horrible things with your data or code {background-color="#3a488c"}
 
 ## 🧼 Data hygiene
 
@@ -103,59 +107,68 @@ I'm assuming you know R.
 
 :::
 
-## 🗂️ Use a consistent project layout {.center .smaller}
+## 🗂️ Consistent project layout {.center .smaller}
 
-:::: {.columns}
+:::: {.columns .v-center-container}
 
-::: {.column width="55%" style="font-size: 3rem; padding-left: 2rem;"}
-```
-data
-  raw
-  clean
-1-cleaning
-2-analysis
-  a-descriptives
-  b-models
-  c-processing
-3-figures
-4-writing
-README.txt
+::: {.column width="30%" style="font-size: 3rem; padding-left: 5rem; padding: 3rem;"}
+```text
+├── data
+│   ├── raw
+│   └── clean
+├── 1-cleaning
+├── 2-analysis
+│   ├── a-descriptives
+│   ├── b-models
+│   └── c-processing
+├── 3-figures
+├── 4-writing
+└── README.txt
 ```
 :::
 
-::: {.column width="45%"}
-![](images/github-structure.png){width="80%"}
+::: {.column width="40%"}
+
+![](images/github-structure.png){style="padding-bottom: 2rem;"}
 :::
 
 ::::
 
 
+::: {.center-h}
 [`https://cookiecutter-data-science.drivendata.org`](https://cookiecutter-data-science.drivendata.org)
+:::
 
-## 🔗 Use relative file paths {.center}
 
-## {.center}
+---
+
+# Use relative file paths {.center}
+
+::: {.fragment}
 
 ::: {.r-fit-text}
 `setwd()` is banned
 :::
 
-## {.center}
-
-:::{.r-fit-text}
-Absolute file paths are brittle.
-
-Relative file paths are portable.
-:::
-
-:::{.r-fit-text}
-Use the [here](https://here.r-lib.org/index.html) package to construct
-**relative** paths.
 :::
 
 ## {.center}
 
-<div style="border: 2px solid #ccc; padding: 1em; border-radius: 8px; background-color: #f9f9f9; padding-top: 0.5em;">
+:::{.r-fit-text}
+🧨 Absolute file paths are **brittle**.
+:::
+
+<br>
+
+::: {.fragment}
+:::{.r-fit-text}
+🎒 Relative file paths are **portable**.
+:::
+:::
+
+## Use [**here**](https://here.r-lib.org/index.html) for relative paths {.center}
+
+<div style="border: 2px solid #ccc; padding: 2rem; border-radius: 8px; background-color: #f9f9f9; padding-top: 1rem; padding-bottom: 0.2rem;">
 
 Set a project root (i.e., a top-level directory) from:
 
@@ -177,8 +190,17 @@ data <- read_csv(
 
 ## {.center}
 
+::: {.center-h}
+This works well with RStudio projects.
+:::
+
 ![](images/rstudio-projects.png){fig-align="center"}
 
+## {.center}
+
+::: {.r-fit-text}
+[https://cran.r-project.org/web/packages/here/vignettes/here.html](https://cran.r-project.org/web/packages/here/vignettes/here.html)
+:::
 
 ## 🧹 Write clean, organised code
 
@@ -194,7 +216,7 @@ data <- read_csv(
 
 ![](images/air.gif){fig-align="center" width="60%" style="padding-bottom:1em;"}
 
-# 🔁<br><br>Version control{background-color="#003049"}
+# 🔁<br><br>Version control{background-color="#3a488c"}
 
 ##
 
@@ -212,7 +234,7 @@ git commit -m "Initial commit"
 ```
 
 <br>
-Then go to [GitHub](https://github.com), create a new repository and
+Then on [GitHub](https://github.com), create a new repository and
 connect the remote repository to your local one:
 
 ```{.bash}
@@ -251,87 +273,120 @@ git push # <3>
 
 3. Add some files. Press buttons, break things.
 
-![](images/papers.gif)
+![](images/papers.gif){fig-align="center"}
 
 ## {.center}
 
 :::{.r-fit-text}
-KEEP BACKUPS.
+KEEP BACKUPS
 :::
 
-## Include a `README.md` file
+## Include a `README.md` file {.center}
 
 A good `README.md` helps others (and your future self) understand your project.
 
-- **Purpose** What and who is the project for?
+- What and who is the project for?
+- Describe the folder structure and key files.
+- Step-by-step instructions, including software dependencies and steps to
+  reproduce.
 
-- **Structure** Describe the folder structure and key files.
-
-- **How to run** Step-by-step instructions, including:
-  - Dependencies (e.g., R packages)
-  - How to run the main script or report
-  - Expected outputs
+::: {.center-h}
+<https://www.makeareadme.com>
+:::
 
 ## {.center}
 
+::: {.center-h}
 <https://github.com/ewancarr/NEWS2-COVID-19>
-
-::: {.r-fit-width}
-![](images/readme.png)
 :::
+
+![](images/readme.png){fig-align="center"}
 
 ## What to learn next?
 
-* Using `.gitignore` effectively
-* Writing good commit messages
-* Branching and pull requests
-* Collaborating in real-world projects
-* Handling merge conflicts
-* Continuous integration (e.g., GitHub Actions)
-* Automated testing
+<ul style="list-style: none; padding-left: 0;">
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>📄</span> <span>Using <code>.gitignore</code> effectively</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>✍️</span> <span>Writing good commit messages</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>🌿</span> <span>Branching and pull requests</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>🤝</span> <span>Collaborating in real-world projects</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>⚔️</span> <span>Handling merge conflicts</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>🔄</span> <span>Continuous integration (e.g., GitHub Actions)</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>🧪</span> <span>Automated testing</span>
+  </li>
+</ul>
 
-## Further reading
+## {.center}
 
-* https://happygitwithr.com
-* https://docs.posit.co/ide/user/ide/guide/tools/version-control.html
-* [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1399928)
+::: {.r-fit-text}
+[happygitwithr.com](https://happygitwithr.com)
+:::
 
+![](images/diff-rebase.png){fig-align="center"}
 
-# 📦<br><br>Environment control{background-color="#003049"}
+::: {.r-fit-text}
+<https://docs.posit.co/ide/user/ide/guide/tools/version-control.html>
+:::
+
+# 📦<br><br>Environment control{background-color="#3a488c"}
 
 ##
 
 ![](images/comic.png){fig-align="center"}
 
-## Your entire environment should be (easily) repoducible.
+## Your entire environment should be easily reproducible
 
-> You need a way of capturing the state of your computing environment,
-> such that you or others can recreate it later.
+We need a way of capturing the state of your computing environment,
+such that you or others can recreate it later.
 
-* Computing environment
-* Software (e.g., R, Python, command line tools, etc.)
+* Software (e.g., R, Python, command line tools)
 * R packages
-* Scripts
+* Operating system
 
 ## How?
 
-- Report `sessionInfo()`
-  or `sessioninfo::session_info()`
+1. Report session information in your scripts:
+   ```{r}
+   #| eval: false
+   sessionInfo()
+   sessioninfo::session_info()
+   ```
 
-- Set a seed
-  (`set.seed(123)`)
+2. Set a seed:
+   ```{r}
+   #| eval: false
+   set.seed(42)
+   ```
 
-- Use a dated CRAN repo
-  e.g., `options(repos = c(CRAN = "https://packagemanager.posit.co/cran/2025-07-25"))`
+3. Use a dated CRAN repository:
+   ```{r}
+   #| eval: false
+   options(repos = c(
+     CRAN = "packagemanager.posit.co/cran/2025-07-25"
+   ))
+   ```
 
-- Use `pak` or `renv` to control package versions
+4. Use [`pak`](https://pak.r-lib.org) or
+   [`renv`](https://rstudio.github.io/renv/) to control package versions.
 
-## Posit Package Manager {.center}
+## Use a dated CRAN repository {.center}
 
 ![](images/ppm.png){fig-width="100%" fig-align="center"}
 
 ::: {.center-h}
-<https://packagemanager.posit.co>
+<https://packagemanager.posit.co/client/#/repos/cran/setup>
 :::
 
 ## {.center}
@@ -341,42 +396,51 @@ A good `README.md` helps others (and your future self) understand your project.
 
 ## `renv`
 
-`renv` helps manage and reproduce the exact package versions used in a project.
+`renv` is an R package to manage and reproduce the exact package versions used
+in a project.
 
-![](images/renv.png){fig-align="center"}
+![](images/renv.png){fig-align="center" style="padding-top: 1.5rem;"}
 
 ## Setting up `renv`
 
-`renv` is an R package. So first, [install]{.alert} the package (once):
+`renv` is an R package. So first, **install** the package (once):
 
 ```{r}
 #| eval: false
 install.packages("renv")
 ```
 
-Then, from the top-level directory, [initialise]{.alert} the project:
+::: {.fragment}
+
+Then, from the top-level directory, **initialise** the project:
 
 ```{r}
 #| eval: false
 renv::init()
 ```
 
-Install packages:
+:::
+
+::: {.fragment}
+
+**Install** the required packages:
 ```{r}
 #| eval: false
 renv::install()             # All required packages
 renv::install("tidyverse")  # A specific package
 ```
 
+:::
+
 ---
 
-Save the current state:
+**Save** the current state:
 ```{r}
 #| eval: false
 renv::snapshot()
 ```
 <br>
-Then share `renv.lock` with collaborator (via Git).
+Then **share** `renv.lock` with collaborator (via Git).
 
 ## Restoring from a `renv` lockfile
 
@@ -388,12 +452,12 @@ When re-initialising a project (e.g., on a new computer, or as a collaborator):
 renv::restore()
 ```
 
-* Compares the lockfile to the current project library
-* Installs any missing or mismatched packages
+* Compares the lockfile to the current project library.
+* Installs any missing or mismatched packages.
 
 ## {.center}
 
-::: {.center-h}
+::: {.r-fit-text}
 R packages are just one part of<br>your computing environment.
 :::
 
@@ -404,17 +468,17 @@ R packages are just one part of<br>your computing environment.
 
 ## Containers {.center}
 
-
 Containers package your entire computing environment so it runs
 consistently everywhere.
 
-![](images/box.png){fig-align="center"}
+
+![](images/box.png){fig-align="center" width="50%" style="padding:1rem;"}
+
+This typically involves [Docker](https://en.wikipedia.org/wiki/Docker_(software)) or [Singularity](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html).
 
 ---
 
-This typically involves [Docker](https://en.wikipedia.org/wiki/Docker_(software)) or [Singularity](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html)^[Especially if using a HPC like CREATE.]
-
-## How does it work? {.center}
+## {.center}
 
 ```{=html}
   <style>
@@ -435,7 +499,7 @@ This typically involves [Docker](https://en.wikipedia.org/wiki/Docker_(software)
     }
 
     .middle {
-      border: 10px solid #003049;
+      border: 10px solid #3a488c;
       padding: 2rem;
       margin-top: 1rem;
     }
@@ -467,129 +531,183 @@ This typically involves [Docker](https://en.wikipedia.org/wiki/Docker_(software)
 
 ## Where do containers come from?
 
-1. Build them yourself.
-2. Download one made by someone else.
+:::: {.columns}
 
----
+::: {.column width="60%"}
+
+1. Build them yourself.
+2. Download a container made by someone else.
+
+:::
+
+::: {.column width="40%"}
+![](images/stork.png)
+:::
+
+::::
+
+## {.center}
 
 ::: {.center-h}
 [https://rocker-project.org](https://rocker-project.org)
 :::
 
-<br>
-
 ![](images/rocker.png){fig-align="center"}
-
 
 ## Docker example
 
-![](images/docker.gif)
+![](images/docker.gif){fig-align="center"}
 
-## Singularity example
+# 🤖<br><br>Workflow automation {background-color="#3a488c"}
 
+## {.center}
 
-
-
-
-
-# 🤖<br><br>Workflow automation {background-color="#003049"}
-
-## Use Quarto
-
-- Combine code, outputs, and narrative
-- Export to PDF, Word, or HTML
-- Supports parameterised reports
-
-<https://quarto.org>
-
-
-
-## Automate your scripts
-
-### Goal: run a full analysis from **raw data → results** with a single command
-
-![](images/button.png)
+![](images/button.png){fig-align="center"}
 
 ## Level 1: `source()`
 
-- Use `source("scripts/01_clean.R")`
-- Chain scripts using numbered filenames
-  e.g., `01_clean.R → 02_analysis.R → 03_plot.R`
-- **Limitations**: manual, fragile, hard to scale
+Create a script that runs your other scripts:
+
+```{r filename="run.R"}
+#| eval: false
+source("01-cleaning.R")
+source("02-analysis.R")
+source("03-plots.R")
+```
+
+* A good start that supports basic automation.
+* Simplistic; runs everything unconditionally, no awareness of dependencies, scales poorly.
 
 ## Level 2: Make
 
-Simple `Makefile` to define dependencies
-Automates re-running only what’s changed
+[Make](https://www.gnu.org/software/make/) is a tool that runs only the parts
+of your code that need updating, based on what's changed.
 
-```make
-# Makefile for automating R scripts
+:::{.fragment style="margin-top: 1rem;"}
+```{bash, filename="Makefile"}
+#| eval: false
+clean.csv: raw.csv cleaning.R # <1>
+	Rscript cleaning.R
 
-all: results/summary.csv figures/plot.png
-
-# Data cleaning step
-data/clean.csv: scripts/01_clean.R data/raw.csv
-	Rscript scripts/01_clean.R
-
-# Analysis step
-results/summary.csv: scripts/02_analyse.R data/clean.csv
-	Rscript scripts/02_analyse.R
-
-# Plotting step
-figures/plot.png: scripts/03_plot.R results/summary.csv
-	Rscript scripts/03_plot.R
-
-# Optional: clean everything
-clean:
-	rm -f data/clean.csv results/summary.csv figures/plot.png
+plot.png: clean.csv analysis.R  # <2>
+	Rscript analysis.R
 ```
-
-```bash
-# Run the full pipeline (build all outputs)
-make
-
-# Just run the analysis step (and its dependencies)
-make results/summary.csv
-
-# Clean all generated outputs
-make clean
-```
-
-
-# Level 3: {targets}
-
-	•	R-native pipeline toolkit
-	•	Define steps + dependencies using functions
-	•	Skips up-to-date steps via caching
-	•	Visualise the pipeline:
-
-![](images/targets.png)
-
-
-## Goal: Run a full analysis from raw data → result with a single command
-
-Start with simple methods:
-Use source("scripts/01_clean.R")
-Script chaining with numbered files
-Limitations: manual, fragile
-
-Then introduce a simple Make file
-
-Then: introduce {targets}
-Define steps and dependencies
-Auto-skips steps with cached results
-Visualise pipeline with tar_visnetwork()
-
-
-# Wrapping up {background-color="#003049"}
-
-![](images/stewie.gif)
-
-## Tools won't  solve
-
-
-* Start small, build incrementally.
+1. Declares target (`clean.csv`) with dependencies (`raw.csv`, `cleaning.R`). If either change, the code is run.
+2. Declares another target (`plot.png`), with two dependencies (`clean.csv`, `analysis.R`).
+:::
 
 ##
 
-Comprehensibility of research. This is not transparency nor openness. What I mean is research has sufficient documentation and justification to reduce error and empower others to make up their own minds about its value. Research should be intelligible. Access is not sufficient. Research can be replicable without being reasonable or correct. Materials and data can be open without being intelligible, and they can be partly closed while still being comprehensible.
+Once you've defined your Makefile, you can then run:
+
+```bash
+make plot.png
+```
+
+to re-run all necessary preceding steps.
+
+<div style="
+border: 3px solid #ccc;
+padding: 1.5rem;
+padding-bottom: 0.5rem;
+border-radius: 10px;
+background-color: #f9f9f9;
+margin-top: 5rem;
+padding-left: 3rem;
+font-size: 2rem;
+">
+
+<h3>To learn more:</h3>
+
+* <https://byronjsmith.com/make-bml>
+* <https://tilburgsciencehub.com/topics/automation/automation-tools/make-and-makefiles/>
+
+</div>
+
+## Level 3: `targets` {.center}
+
+* [`targets`](https://docs.ropensci.org/targets/) is an R package for building reproducible workflows by tracking and running R *functions* instead of files.
+
+* Like Make, but it works at the level of R objects and code, not just scripts and outputs.
+
+:::{.center-h}
+<https://docs.ropensci.org/targets/>
+:::
+
+---
+
+![](images/targets-network.png){fig-align="center"}
+
+##
+
+![](images/targets-manual.png)
+
+:::{.center-h}
+<https://books.ropensci.org/targets/>
+:::
+
+---
+
+{{< video https://vimeo.com/700982360 width="100%" height="100%" >}}
+
+## Use Quarto to automate reporting
+
+![](images/quarto.png){fig-align="center"}
+
+##
+
+![](images/quarto-website.png){fig-align="center"}
+
+::: {.center-h}
+<https://quarto.org>
+:::
+
+# Wrapping up {background-color="#3a488c" .center}
+
+<br><br>
+![](images/stewie.gif)
+
+
+## Phew, that was a lot.
+
+<ul style="list-style: none; padding-left: 0;">
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>🌱</span> <span>Start small, build incrementally.</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>🤝</span> <span>Talk to colleagues about how they organise their code; establish shared practices.</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>🌀</span> <span>Use version control early — it saves time (and headaches) later.</span>
+  </li>
+  <li style="display: flex; align-items: start; gap: 0.5em;">
+    <span>🧠</span> <span>Tools help — but culture and communication are key.</span>
+  </li>
+</ul>
+
+---
+
+If you read one thing...
+
+<div style="border: 6px solid #999; background: #f9f9f9; padding: 1rem; font-family: Optima, Georgia, serif; font-size: 2.2rem; line-height: 1.5; margin: 1rem; margin-top: 2rem; padding: 2rem; padding-top: 1.5rem">
+<div style="font-size: 3rem; padding-bottom: 0.5rem;">**Comprehensibility of research**</div>
+
+  This is not transparency nor openness. What I mean is research has sufficient documentation and justification to reduce error and empower others to make up their own minds about its value. **Research should be intelligible**. Access is not sufficient. Research can be replicable without being reasonable or correct. Materials and data can be open without being intelligible, and they can be partly closed while still being comprehensible.
+</div>
+
+:::{.r-fit-text}
+[elevanth.org/blog/2025/07/09/which-kind-of-science-reform](https://elevanth.org/blog/2025/07/09/which-kind-of-science-reform)
+:::
+
+
+## {.center}
+
+:::{.center-h style="font-size: 4rem; font-weight:800;"}
+Thank you for listening.
+:::
+
+![](images/qr.png){fig-align="center"}
+
+:::{.center-h}
+*Slides and practical materials*
+:::

@@ -104,6 +104,58 @@ GitHub, by following the [instructions here](https://desktop.github.com).
 
 :::
 
+::: {.callout-tip collapse=true appearance="minimal"}
+
+### <span style="font-size:1.5em; margin-bottom: 2rem; padding-bottom: 2rem;">🔐 Authentication</span>
+
+<p style="padding-top: 1rem;">
+To push and pull from GitHub, you need to authenticate. There are two options:
+</p>
+
+::: {.panel-tabset}
+
+## GitHub Desktop
+
+- This is a good place to start if you're new to Git.
+- When you first log in via GitHub Desktop, it stores a token securely.
+- You can clone, commit, push, and pull without dealing with passwords or keys.
+
+![](images/github-auth.png)
+
+## SSH keys
+
+- Recommended for longer-term use.
+- Requires access to a command line.
+
+1. Generate a key (if you don’t have one):
+
+   ```bash
+   ssh-keygen -t ed25519 -C "your_email@example.com"
+   ```
+
+2. Copy the key to your clipboard
+
+   ```bash
+   # macOS
+   pbcopy < ~/.ssh/id_ed25519.pub
+
+   # Windows using Git Bash
+   cat ~/.ssh/id_ed25519.pub | clip
+   ```
+
+3. Add it to GitHub:
+- Go to [GitHub → Settings → SSH and GPG keys](https://github.com/settings/keys).
+- Click "New SSH key" and paste your generated key.
+
+4. Tell Git to use the key:
+
+   ```bash
+   git remote set-url origin git@github.com:username/repo.git
+   ```
+
+:::
+
+:::
 
 # Create a project in RStudio
 
