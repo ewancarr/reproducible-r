@@ -134,13 +134,9 @@ font-size: 2rem;
 
 ::::
 
-
 ::: {.center-h}
 [`https://cookiecutter-data-science.drivendata.org`](https://cookiecutter-data-science.drivendata.org)
 :::
-
-
----
 
 # Use relative file paths {.center}
 
