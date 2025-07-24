@@ -43,12 +43,14 @@ This practical will bring together the steps covered in the lecture by:
 2. Committing your project to GitHub
 3. Restoring it from GitHub
 
-With the Women's EURO 2025 final coming up this weekend, we'll be using
-data on `r team`'s performances over the past year.
+With the Women's EURO 2025 final approaching this weekend, we'll build a
+reproducible pipeline to predict England's chance of winning the final
+against Spain, using information of their performance over the past
+year.
 
 You will:
 
-* Build models to predict `r team`'s chance of winning their next match.
+* Build models to predict England's chance of winning their next match.
 * Simulate the likely outcome of the final.
 * Use `here` for file paths and `renv` to lock package versions.
 * Create a Git repository, version your code with git, and push it to GitHub.
