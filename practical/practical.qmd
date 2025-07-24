@@ -14,6 +14,7 @@ format:
     theme:
       light: flatly
       dark: darkly
+    output-file: index.html
     toc: true
     number-sections: true
     embed-resources: true
@@ -131,29 +132,23 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 
 1. Generate a key (if you don’t have one):
 
-```bash
-ssh-keygen -t ed25519 -C "your_email@example.com"
+   ```bash
+   ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 
 2. Copy the key to your clipboard
 
-```bash
-# macOS
-pbcopy < ~/.ssh/id_ed25519.pub
+   ```bash
+   # macOS
+   pbcopy < ~/.ssh/id_ed25519.pub
 
-# Windows using Git Bash
-cat ~/.ssh/id_ed25519.pub | clip
-```
+   # Windows using Git Bash
+   cat ~/.ssh/id_ed25519.pub | clip
+   ```
 
 3. Add it to GitHub:
 - Go to [GitHub → Settings → SSH and GPG keys](https://github.com/settings/keys).
-- Click **New SSH key** and paste your generated key.
-
-4. Tell Git to use the key:
-
-```bash
-git remote set-url origin git@github.com:username/repo.git
-```
+- Click <kbd>New SSH key</kbd> and paste your generated key.
 
 :::
 
@@ -161,7 +156,7 @@ git remote set-url origin git@github.com:username/repo.git
 
 Create a new RStudio Project and give it an appropriate name (e.g., `euros-prediction`):
 
-> <kbd>**File**</kbd> → <kbd>**New Project**</kbd> →  <kbd>**New Directory**</kbd>
+> <kbd>File</kbd> → <kbd>New Project</kbd> → <kbd>New Directory</kbd>
 
 # Download the scripts and datasets
 
@@ -179,7 +174,7 @@ Put these inside your project folder and recreate the structure shown below:
 [plot]: https://github.com/ewancarr/reproducible-r/raw/refs/heads/main/practical/2-scripts/03-plot.R
 [fixtures]: https://raw.githubusercontent.com/ewancarr/reproducible-r/refs/heads/main/practical/1-data/raw/fixtures.csv
 
-```{text style="padding-left:4rem; font-size: 1.2rem;"}
+```{default style="padding-left:4rem; font-size: 1.2rem;"}
 1-data/
 ├── raw/
 │   └── fixtures.csv
@@ -213,7 +208,6 @@ Open the `renv.lock` lockfile to understand its contents.
 
 Once packages are installed and `renv`  is initialised, you're ready to run the
 analysis.
-
 
 ::: {.panel-tabset}
 
@@ -262,7 +256,7 @@ avoiding the need to run them separately.
 
 [source]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html
 
-Run the `run.R` script either by clicking <kbd>**Run**</kbd> or by typing at the console:
+Run the `run.R` script either by clicking <kbd>Run</kbd> or by typing at the console:
 
 ```r
 source("run.R")
@@ -295,8 +289,8 @@ git init
 ## GitHub Desktop
 
 1. Open GitHub Desktop.
-2. Go to **File** → **Add Local Repository…**.
-3. Click **Choose…** and select your existing project folder.
+2. Go to <kbd>File</kbd> → <kbd>Add Local Repository…</kbd>.
+3. Click <kbd>Choose…</kbd> and select your existing project folder.
 4. You should see the prompt:
 
   > The directory does not appear to be a Git repository. Would you like to
@@ -365,14 +359,14 @@ GitHub.
 
 1. On GitHub.com, create a new (empty) repository.
 
-2. In **GitHub Desktop**, go to **Repository** → **Repository Settings...**
+2. In **GitHub Desktop**, go to <kbd>Repository</kbd> → <kbd>Repository Settings...</kbd>
 
-3. Under **Remote**, click **Add** and enter:
+3. Under **Remote**, click <kbd>Add</kbd> and enter:
    - **Name**: `origin`
    - **URL**: `git@github.com:username/repo.git`
      (Replace with the URL of your new repository)
 
-4. Click **Save**.
+4. Click <kbd>Save</kbd>.
 
 5. Back in the main window, click **Push origin** (top bar) to upload your commits to GitHub.
 
@@ -406,7 +400,7 @@ The steps involved are:
 
 ## GitHub Desktop
 
-1. <kbd>**File**</kbd> → <kbd>**Clone Repository…**</kbd>
+1. <kbd>File</kbd> → <kbd>Clone Repository…</kbd>
 2. Choose your repository.
 
 Then open the RStudio Project, and at the R console:
