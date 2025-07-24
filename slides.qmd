@@ -707,3 +707,7 @@ Thank you for listening.
 :::{.center-h}
 *Slides and practical materials*
 :::
+
+## {.center}
+
+![](images/pigs.png)
