@@ -1,4 +1,4 @@
-# Title:        Plot the results of our prediction model
+# Title:        Plot the results of the prediction model
 # Author:       Ewan Carr
 # Started:      2025-07-17
 

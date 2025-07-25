@@ -1,3 +1,7 @@
+# Title:        Poisson models to predict next game result
+# Author:       Ewan Carr
+# Started:      2025-07-25
+
 library(tidyverse)
 library(here)
 library(broom)

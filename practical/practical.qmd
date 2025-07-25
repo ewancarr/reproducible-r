@@ -63,14 +63,12 @@ To complete this practical, you'll need:
 
 * R (≥ 4.3)
 * RStudio
-* Git, used for version control
-* [GitHub Desktop](https://github.com/apps/desktop) (optional), a user-friendly way to interact with Git and GitHub.
+* Git, used for version control; or
+* [GitHub Desktop](https://github.com/apps/desktop), a user-friendly way to interact with Git and GitHub.
 
-GitHub Desktop includes Git, so you don't need to install Git separately if you
-use it. However, we recommend installing Git directly to ensure compatibility
-with RStudio's Git features.
-
-## Installing Git {.unnumbered}
+GitHub Desktop includes Git, so you don't need to install Git separately
+if you use it. However, we recommend installing Git directly to ensure
+compatibility with RStudio's Git features.
 
 ::: {.callout-warning icon="false" title="<span style='margin-right: 0.5em;'>💡</span>If you're new to the command line, use GitHub Desktop"}
 
@@ -78,11 +76,13 @@ with RStudio's Git features.
 
 :::
 
+## Installing Git {.unnumbered}
+
 ::: {.panel-tabset}
 
 ## macOS
 
-Git is often pre-installed on macOS. You can check by typing in the Terminal:
+Git is often pre-installed on macOS. You can check by typing in the terminal:
 
 ```bash
 git --version
@@ -117,14 +117,6 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 
 ::: {.panel-tabset}
 
-## GitHub Desktop
-
-- This is a good place to start if you're new to Git.
-- When you first log in via GitHub Desktop, it stores a token securely.
-- You can clone, commit, push, and pull without dealing with passwords or keys.
-
-![](images/github-auth.png)
-
 ## SSH keys
 
 - Recommended for longer-term use.
@@ -138,17 +130,33 @@ To push and pull from GitHub, you need to authenticate. There are two options:
 
 2. Copy the key to your clipboard
 
-   ```bash
-   # macOS
-   pbcopy < ~/.ssh/id_ed25519.pub
+::: {.panel-tabset}
 
-   # Windows using Git Bash
-   cat ~/.ssh/id_ed25519.pub | clip
-   ```
+## macOS
+```bash
+pbcopy < ~/.ssh/id_ed25519.pub
+```
+
+## Windows using Git Bash
+```bash
+cat ~/.ssh/id_ed25519.pub | clip
+```
+
+:::
 
 3. Add it to GitHub:
 - Go to [GitHub → Settings → SSH and GPG keys](https://github.com/settings/keys).
 - Click <kbd>New SSH key</kbd> and paste your generated key.
+
+See [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows) if you get stuck.
+
+## GitHub Desktop
+
+- A good place to start if you're new to Git.
+- When you first log in via GitHub Desktop, it stores a token securely.
+- You can clone, commit, push, and pull without dealing with passwords or keys.
+
+![](images/github-auth.png)
 
 :::
 
@@ -160,7 +168,8 @@ Create a new RStudio Project and give it an appropriate name (e.g., `euros-predi
 
 # Download the scripts and datasets
 
-Click the links below to download the required scripts and dataset:
+Right click the links below to download the required scripts and
+dataset:
 
 * [`01-clean.R`][clean]
 * [`02-analysis.R`][analysis]
@@ -188,7 +197,7 @@ outputs/
 
 # Initialise `renv` and install the required packages
 
-In the console, type:
+In the R console, type:
 
 ```{r}
 #| eval: false
@@ -267,9 +276,9 @@ source("run.R")
 We've now set up our project, initialised `renv`, and created a `run.R`
 script that automates our data cleaning and analysis.
 
-In this section, we'll initialise a Git repository and 'commit' the
-current state of our files. Git will allow us to track changes to our
-files over time and restore previous versions.
+In this section, we'll initialise a new, empty Git repository. Git will
+allow us to track changes to our files over time and restore previous
+versions.
 
 You can complete this section via the terminal or using a desktop application, such as [GitHub Desktop](https://desktop.github.com/download/).
 
@@ -355,6 +364,17 @@ GitHub.
 
 ::: {.panel-tabset}
 
+## Terminal
+
+In the terminal, you can do this by typing:
+
+```bash
+git remote add origin git@github.com:username/repo.git # <1>
+git push origin main # <2>
+```
+1. Set the `remote` to point to the new repository on Github. You will need to replace the URL with the corresponding URL for your repository.
+2. 'Push' the local history to GitHub.
+
 ## GitHub Desktop
 
 1. On GitHub.com, create a new (empty) repository.
@@ -370,17 +390,6 @@ GitHub.
 
 5. Back in the main window, click **Push origin** (top bar) to upload your commits to GitHub.
 
-## Terminal
-
-In the terminal, you can do this by typing:
-
-```bash
-git remote add origin git@github.com:username/repo.git # <1>
-git push origin main # <2>
-```
-1. Set the `remote` to point to the new repository on Github. You will need to replace the URL with the corresponding URL for your repository.
-2. 'Push' the local history to GitHub.
-
 :::
 
 # Reproducing your analysis from GitHub
@@ -395,20 +404,7 @@ The steps involved are:
 2. Restore the `renv` environment.
 3. Run the `run.R` script to repeat the analysis.
 
-
 ::: {.panel-tabset}
-
-## GitHub Desktop
-
-1. <kbd>File</kbd> → <kbd>Clone Repository…</kbd>
-2. Choose your repository.
-
-Then open the RStudio Project, and at the R console:
-
-```r
-renv::restore()
-source("run.R")
-```
 
 ## Terminal
 
@@ -419,6 +415,18 @@ git clone https://github.com/username/your-repo.git # <1>
 ```
 1. 'Clone' the repository on GitHub to a local folder. Replace `username` and
    `your-repo` as appropriate.
+
+Then open the RStudio Project, and at the R console:
+
+```r
+renv::restore()
+source("run.R")
+```
+
+## GitHub Desktop
+
+1. <kbd>File</kbd> → <kbd>Clone Repository…</kbd>
+2. Choose your repository.
 
 Then open the RStudio Project, and at the R console:
 
