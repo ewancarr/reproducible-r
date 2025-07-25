@@ -178,7 +178,7 @@ dataset:
 
 Put these inside your project folder and recreate the structure shown below:
 
-[clean]: https://github.com/ewancarr/reproducible-r/raw/32c5193f823d03da27e59345169da15c68e12036/practical/2-scripts/01-clean.R
+[clean]: https://github.com/ewancarr/reproducible-r/raw/practical/2-scripts/01-clean.R
 [analysis]: https://github.com/ewancarr/reproducible-r/raw/refs/heads/main/practical/2-scripts/02-analysis.R
 [plot]: https://github.com/ewancarr/reproducible-r/raw/refs/heads/main/practical/2-scripts/03-plot.R
 [fixtures]: https://raw.githubusercontent.com/ewancarr/reproducible-r/refs/heads/main/practical/1-data/raw/fixtures.csv
